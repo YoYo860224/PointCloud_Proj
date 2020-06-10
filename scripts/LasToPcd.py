@@ -21,9 +21,9 @@ for idx in range(pc_len):
     waterLevel= inFile.Z[idx] * las_scale[2] + las_offset[2]
     twd97Pos = twd97.fromwgs84(latitude, longitude)
 
-    laspc[idx, 0] = twd97Pos[0] - 270804
-    laspc[idx, 1] = twd97Pos[1] - 2746110
-    laspc[idx, 2] = waterLevel  - 301.93
+    laspc[idx, 0] = twd97Pos[0] - 270800
+    laspc[idx, 1] = twd97Pos[1] - 2746100
+    laspc[idx, 2] = waterLevel  - 300
     laspc[idx, 3] = inFile.intensity[idx]
 
     if idx % 100000 == 0:
@@ -45,4 +45,4 @@ md['points'] = pc_len
 
 pc = pypcd.PointCloud(md, laspc)
 pypcd.save_point_cloud_bin(pc, "./twAll_bin.pcd")
-pypcd.save_point_cloud(pc, "./twAll_ascii.pcd")
+# pypcd.save_point_cloud(pc, "./twAll_ascii.pcd")
